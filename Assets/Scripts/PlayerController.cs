@@ -1,3 +1,4 @@
+using Assets.Scripts.Interactions;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private Gun gun;
 
     private float _xRotation = 0f;
     private float _groundDistance = .25f, yVelocity;
@@ -63,6 +65,11 @@ public class PlayerController : MonoBehaviour
 
         // Horizontal rotation (player) 
         transform.Rotate(Vector3.up * mouseX);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            gun.Shoot();
+        }
     }
 
     private void Jump()
