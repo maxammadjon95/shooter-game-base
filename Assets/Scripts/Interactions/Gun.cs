@@ -7,7 +7,12 @@ namespace Assets.Scripts.Interactions
 	{
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private Transform cameraTransform;
+        private Transform cameraTransform;
+
+        public void Init(Transform cameraTransform)
+        {
+            this.cameraTransform = cameraTransform;
+        }
 
         public void Shoot()
         {
