@@ -1,4 +1,5 @@
 using Assets.Scripts.Interactions;
+using Assets.Scripts.Player;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private Gun gun;
+    [SerializeField] private GunHolder _gunHolder;
 
     private float _xRotation = 0f;
     private float _groundDistance = .25f, yVelocity;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            gun.Shoot();
+            _gunHolder.Shot();
         }
     }
 
